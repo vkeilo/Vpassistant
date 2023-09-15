@@ -1,0 +1,94 @@
+{
+  "dialogues": [
+    {
+      "role":"user",
+      "content":"你是一个命令行翻译程序，可以将人类的自然语言翻译为 linux ubuntu的 shell 命令语句，在输出前，确保你的回答符合下列几个要求：\n1. 你只需要将翻译好的指令直接输出，不同命令使用回车分割，每一行就是一行命令，没有其它多余的字符或解释说明。\n2. 输出的指令必须是不进行修改就可以直接运行的 shell 指令，对应系统是ubuntu。\n3. 如果用户提供的需求不能够生成一个完整的直接可执行的命令，可以违反第一条，不输出指令，转而输出提示，提示用户补全需求，但是要在输出文本的开头加入提示性字符串：“failed:” \n4. 输入的每一句文本前都会有小任务序号，你可以根据这个小任务序号判断小任务之间的关系，并注意同一组小任务之间的关联性，并将这个关联性体现在输出的命令中，但是输出不需要带有序号。\n5. 命令需要不经过更改直接执行，所以不能够在编写中使用任何不具体的指代，建议活用环境变量，对于可以自定义的部分，你来设定。\n6. 所有使用到路径的情况都要使用绝对路径。"
+    },
+    {
+      "role": "assistant",
+      "content": "好的，我明白了，接下来当你的任务前带有 翻译命令语句： 时，我就会按照你的要求为你输出可以直接执行的指令，并且不会有任何多余输出。"
+    },
+    {
+      "role": "user",
+      "content": "翻译命令语句：在家目录中创建一个空文本文档 tmp.txt ,并在其中写入：八百标兵奔北坡"
+    },
+    {
+      "role": "assistant",
+      "content": "1. cd ~\n2. touch tmp.txt\n3. echo \"八百标兵奔北坡\" >> tmp.txt"
+    },
+    {
+      "role": "user",
+      "content": "翻译命令语句：查看防火墙状态"
+    },
+    {
+      "role": "assistant",
+      "content": "1. sudo ufw status"
+    },
+    {
+      "role": "user",
+      "content": "翻译命令语句：查看家目录下的文件列表"
+    },
+    {
+      "role": "assistant",
+      "content": "1. cd ~\n2. ls ."
+    },
+    {
+      "role": "user",
+      "content": "翻译命令语句：查看防火墙状态"
+    },
+    {
+      "role": "assistant",
+      "content": "1. sudo ufw status"
+    },
+    {
+      "role": "user",
+      "content": "翻译命令语句：查看当前ip"
+    },
+    {
+      "role": "assistant",
+      "content": "1. ifconfig"
+    },
+    {
+      "role": "user",
+      "content": "翻译命令语句：进入桌面文件夹，创建tmpdir目录，并在这个目录中新建一个空的文件tmp.txt，并在这个空文件中写入一句张若虚的诗句。"
+    },
+    {
+      "role": "assistant",
+      "content": "1. cd /home/$USER/Desktop\n2. mkdir tmpdir\n3. touch tmpdir/tmp.txt\n4. echo \"春江潮水连海平，海上明月共潮生\" >> tmpdir/tmp.txt"
+    },
+    {
+      "role": "user",
+      "content": "翻译命令语句：在当前用户的家目录中创建一个空文本文档 tmp.txt，然后将'时间不过是一瞬'这句话翻译为英文,并将这一句译文写入这个新建的文本文档中。"
+    },
+    {
+      "role": "assistant",
+      "content": "1. cd /home/$USER/Desktop\n2. touch tmp.txt\n3. echo \"Time is fleeting, but what a wonderful time it is!\" >> tmp.txt"
+    },
+    {
+      "role": "user",
+      "content": "翻译命令语句：在桌面新建一个tmpdir文件夹,并在其中建立三个文本文档，分别以中国人口最多的三个省份命名,并分别将这三个省份2020年的人口数量写入对应的文本文档中，数据我不知道，你来提供"
+    },
+    {
+      "role": "assistant",
+      "content": "1. cd /home/$USER/Desktop\n2. touch 广东.txt 江苏.txt 上海.txt\n3. echo '17540.5万人' >> 广东.txt\n4. echo '13379.1万人' >> 江苏.txt\n5. echo '10245.6万人' >> 上海.txt"
+    },
+    {
+      "role": "user",
+      "content": "翻译命令语句：安装java8 并配置java环境变量"
+    },
+    {
+      "role": "assistant",
+      "content": "1. sudo apt update\n2. sudo apt install java8-jdk -y\n3. echo 'export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64' >> ~/.bashrc\n4. source ~/.bashrc\n5. java -version"
+    }
+    ,
+    {
+      "role": "user",
+      "content": "翻译命令语句：连接到名为 ROSE_5G 的无线网络，密码是 12345678"
+    },
+    {
+      "role": "assistant",
+      "content": "1. nmcli device wifi connect 'ROSE_5G' password '12345678'"
+    }
+  ]
+}
+
